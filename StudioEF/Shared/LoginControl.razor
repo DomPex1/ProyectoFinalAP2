@@ -1,0 +1,27 @@
+﻿
+@page "/loginControl"
+@using System.Web;
+
+<AuthorizeView>
+    <Authorized>
+        <b>Usuario: @context.User.Identity.Name</b>
+
+        <a class="ml-md-auto btn btn-success"
+           href="/logout?returnUrl=/"
+           target="_top">Salir<span class="oi oi-account-logout"></span></a>
+    </Authorized>
+    <NotAuthorized>
+        <div>
+            <h2>Foto estudio Guichardo</h2>
+        </div>
+    </NotAuthorized>
+</AuthorizeView>
+
+@code {
+
+    private string encode(string param)
+    {
+        return HttpUtility.UrlEncode(param);
+    }
+
+}
